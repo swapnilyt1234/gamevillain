@@ -20,7 +20,7 @@
     "node-superfetch": "^0.1.10",
     "novelcovid": "^1.2.6",
     "ms": "^2.1.2",
-    "nodemon": "^2.1.4"
+    "nodemon": "^2.0.4"
   },
   "engines": {
     "node": "12.x"
