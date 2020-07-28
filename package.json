@@ -4,7 +4,7 @@
   "description": "simple bot",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
