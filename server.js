@@ -1,4 +1,3 @@
-/*
 const Discord = require("discord.js");
 const tutorialBot = require("./handler/ClientBuilder.js");
 const client = new tutorialBot();
@@ -8,21 +7,4 @@ require("./handler/Event.js")(client);
 client.package = require("./package.json");
 client.on("warn", console.warn);
 client.on("error", console.error);
-client.login(process.env.SECRET).catch(console.error);*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//WE MOVED LOL
+client.login(process.env.SECRET).catch(console.error);
