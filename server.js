@@ -7,4 +7,4 @@ require("./handler/Event.js")(client);
 client.package = require("./package.json");
 client.on("warn", console.warn);
 client.on("error", console.error);
-client.login(process.env.SECRET).catch(console.error);
+client.login(process.env.TOKEN).catch(console.error);
