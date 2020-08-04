@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const ms = require('ms');
 
 exports.run = async(client, message, args) => {
@@ -21,7 +22,7 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
                 message.channel.send('An error occured')
             }
         })
-  }
+    }
 
 exports.help = {
   name: "reroll",
