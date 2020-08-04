@@ -1,6 +1,6 @@
 const Discord = require("discord.js"),
-const { GiveawaysManager } = require('discord-giveaways'); 
-  cooldowns = new Discord.Collection(),
+ 
+      cooldowns = new Discord.Collection(),
  const db = require("quick.db"),
   { def_prefix } = require("../config.json");
 // cooldowns will store the user when they are still in the cooldown mode.
@@ -173,14 +173,4 @@ module.exports = async (client, message) => {
     // If you want to really know, who is typing or using your bot right now.
     console.log(`${sender.tag} (${sender.id}) ran a command: ${cmd}`);
   }
-
-client.giveawaysManager = new GiveawaysManager(client, {
-    storage: "./giveaway.json",
-    updateCountdownEvery: 5000,
-    default: {
-        botsCanWin: false,
-        exemptPermissions: ["MANAGE_MESSAGES", "ADMINISTRATOR"],
-        embedColor: "#FF0000",
-        reaction: "🎉"
-    }
 };
