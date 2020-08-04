@@ -1,7 +1,7 @@
 const Discord = require("discord.js"),
  
       cooldowns = new Discord.Collection(),
- const db = require("quick.db"),
+db = require("quick.db"),
   { def_prefix } = require("../config.json");
 // cooldowns will store the user when they are still in the cooldown mode.
 
