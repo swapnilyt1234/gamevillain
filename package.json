@@ -17,6 +17,7 @@
     "jimp": "^0.14.0",
     "imagecolors": "^0.12.0",
     "discord.js": "^12.2.0",
+    "discord-giveaways": "^4.1.8",
     "something-random-on-discord": "^0.0.1",
     "node-superfetch": "^0.1.10",
     "novelcovid": "^1.2.6",
