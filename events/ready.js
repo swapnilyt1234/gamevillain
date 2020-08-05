@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 const mong = require('../mongoose.js')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://avocado:avacad0t0a$t@avocado-sqxmh.mongodb.net/discord?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://swapnilyt:swapnilyt@gamevillain.b8qz9.mongodb.net/<dbname>?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, (err) => {
