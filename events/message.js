@@ -3,13 +3,16 @@ const Discord = require("discord.js"),
       cooldowns = new Discord.Collection(),
 db = require("quick.db"),
   { def_prefix } = require("../config.json");
-// cooldowns will store the user when they are still in the cooldown mode.
+const configi = require('../mongoose.js')
 
 module.exports = async (client, message) => {
   if (message.author.bot || message.author === client.user) return;
 
-  let prefix = db.get(`prefix.${message.guild.id}`);
-  if (prefix == null) prefix = def_prefix;
+       configi.findOne({
+      gid: message.guild.id
+    }, async(err, guild) => {
+      if(err)console.error(err)
+      let prefix = guild.prefix
   
   if(message.content == `<@${client.user.id}>` || message.content == `<@!${client.user.id}>`)return message.channel.send(`Beep Boop, My prefix is \`${prefix}\` Boop Beep!`)
 
@@ -172,5 +175,6 @@ module.exports = async (client, message) => {
   } finally {
     // If you want to really know, who is typing or using your bot right now.
     console.log(`${sender.tag} (${sender.id}) ran a command: ${cmd}`);
+  })
   }
 };
