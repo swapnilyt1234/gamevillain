@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const tutorialBot = require("./handler/ClientBuilder.js");
 const client = new tutorialBot();
-const db = require("quick.db");
+const mongoose = require('mongoose');
 require("./handler/module.js")(client);
 require("./handler/Event.js")(client);
 client.package = require("./package.json");
