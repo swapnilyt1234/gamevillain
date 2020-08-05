@@ -29,7 +29,7 @@ mong.findOne({
     const newC = new mong({
       gid: id,
       gName: gd.name,
-      prefix: def_prefix,
+      prefix: "-",
       ownerID: gd.owner.user.id,
       ownerTag: gd.owner.user.tag,
       memberCount: gd.memberCount
