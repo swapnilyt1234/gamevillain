@@ -25,7 +25,7 @@ mong.findOne({
 }, (err, guild) => {
   if(err) console.log(err)
   if(!guild){
-    const gd = bot.guilds.cache.get(id)
+    const gd = client.guilds.cache.get(id)
     const newC = new mong({
       gid: id,
       gName: gd.name,
