@@ -1,4 +1,4 @@
-let configi = require('../mongodb.js')
+let configi = require('../mongoose.js')
 module.exports = (client, guild) => {
         const newC = new configi({
           gid: guild.id,
