@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://swapnilyt:swapnilyt@main.b8qz9.azure.mongodb.net
 })
 
 
-modules.exports = async(client, message, args) => {
+module.exports = async client => {
     let status = await db.fetch(`status`);
     if (!status || status == null) status = `with Users`;
     console.log("I am Ready to Go");
