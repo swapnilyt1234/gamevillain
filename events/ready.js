@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 
-const mong = require('../mongoose.js')
+const mong = require('../mongoose.js');
 const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://swapnilyt:swapnilyt@gamevillain.b8qz9.mongodb.net/villain?retryWrites=true&w=majority', {
   useNewUrlParser: true,
