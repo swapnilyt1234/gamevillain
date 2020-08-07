@@ -1,5 +1,5 @@
 let choose;
-const poss = ["No", "Yes", "Maybe", "I don't know"];
+const poss = ["No", "Yes", "Maybe", "I don't know", "Possible", "Damn sure", "Not ever idiot", "No chance", "Might be", "I don't wanna answer :rofl;"];
 exports.run = async (client, message, args) => {
   if (!args[0])
     return message.channel
