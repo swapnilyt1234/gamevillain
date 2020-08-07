@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
     let user = message.mentions.users.first() || message.author;
     let random = Math.floor(Math.random() * 100) + 1;
-    message.channel.send(`${user.username}` + " is " + random + "% gay.")
+    message.channel.send(`${user.mention}` + " is " + random + "% gay.")
 }
 
 exports.help = {
