@@ -3,7 +3,7 @@ module.exports = (client, guild) => {
         const newC = new configi({
           gid: guild.id,
           gName: guild.name,
-          prefix: "-",
+          prefix: "?",
           ownerID: guild.owner.user.id,
           ownerTag: guild.owner.user.tag,
           memberCount: guild.memberCount
