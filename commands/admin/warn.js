@@ -47,7 +47,7 @@ if(message.guild.owner.id == user.user.id) {
     }
       
        if(warnings === null) {
-      let new = news mong({
+      let news = new mong({
              mid: `${user.id}_${message.guild.id}`,
              warnings: 1
            })
