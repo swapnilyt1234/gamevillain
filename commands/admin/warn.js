@@ -21,7 +21,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
     }
     
 if(message.guild.owner.id == user.user.id) {
-      return message.channel.send("You jerk, how you can warn server owner -_-")
+      await return message.channel.send("You jerk, how you can warn server owner -_-")
     }
     
     const reason = args.slice(1).join(" ")
