@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const mong = require('../../mongoose.js')
-exports.run = async(client, message, args) => {
+exports.run = async (client, message, args) => {
 if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You should have admin perms to use this command!")
     }
