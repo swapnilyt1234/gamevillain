@@ -48,6 +48,7 @@ if(message.guild.owner.id == user.user.id) {
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
 }
+}
     
 exports.help = {
   name: "warn",
