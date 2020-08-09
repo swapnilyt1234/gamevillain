@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const db = require("quick.db");
 const mong = require('../../mongoose.js')
 exports.run = async(client, message, args) => {
             if(!message.member.hasPermission("ADMINISTRATOR")) {
@@ -31,6 +30,18 @@ if(message.guild.owner.id == user.user.id) {
     }
       
        let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
+       mong.findOne({
+         mid: user.id
+       }, (err, mem) => {
+        if(err)console.log(err)
+        if(!mem){
+           const new = new mong({
+             mid: user.id,
+             warnings: null
+           })
+          return new.save()
+        }
+       })
        
        if(warnings === 3) {
       return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
