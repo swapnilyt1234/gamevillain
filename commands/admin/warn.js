@@ -30,7 +30,6 @@ if(message.guild.owner.id == user.user.id) {
   if(!reason) {
       return message.channel.send("Please provide reason to warn - warn @mention <reason>")
     }
-}
       
        let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
        
