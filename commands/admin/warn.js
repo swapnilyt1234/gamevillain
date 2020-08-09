@@ -15,13 +15,13 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
     if(message.mentions.users.first().bot) {
       return message.channel.send("You can not warn bots")
     }
-    
-    if(message.author.id === user.id) {
+      
+      if(message.author.id === user.id) {
       return message.channel.send("You can not warn yourself")
     }
     
 if(message.guild.owner.id == user.user.id) {
-      await message.channel.send("You jerk, how you can warn server owner -_-")
+      return message.channel.send("You jerk, how you can warn server owner -_-")
     }
     
     const reason = args.slice(1).join(" ")
@@ -30,7 +30,24 @@ if(message.guild.owner.id == user.user.id) {
       return message.channel.send("Please provide reason to warn - warn @mention <reason>")
     }
 }
-
+      
+       let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
+       
+       if(warnings === 3) {
+      return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
+    }
+      
+       if(warnings === null) {
+      db.set(`warnings_${message.guild.id}_${user.id}`, 1)
+      user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
+    }
+      else if(warnings !== null) {
+        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
+       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
+    }
+    
 exports.help = {
   name: "warn",
   description: "Warns a user",
