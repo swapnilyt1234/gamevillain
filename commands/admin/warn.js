@@ -37,6 +37,7 @@ if(message.guild.owner.id == user.user.id) {
       return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
     }
       
+client.on('message', async message => {
        if(warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1)
       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
@@ -47,6 +48,7 @@ if(message.guild.owner.id == user.user.id) {
        user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
+}
     
 exports.help = {
   name: "warn",
