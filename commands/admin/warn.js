@@ -1,4 +1,4 @@
-const warns = require("../../models/warns.js");
+const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
   let user = message.mentions.users.first();
