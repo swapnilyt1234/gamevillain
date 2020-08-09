@@ -35,7 +35,7 @@ if(message.guild.owner.id == user.user.id) {
         if(err)console.log(err)
         if(!mem){
            let news = new mong({
-             mid: `${user.id}_${message.guild.id}`
+             mid: `${user.id}_${message.guild.id}`,
              warnings: null
            })
           news.save()
@@ -48,7 +48,7 @@ if(message.guild.owner.id == user.user.id) {
       
        if(warnings === null) {
       let new = news mong({
-             mid: `${user.id}_${message.guild.id}`
+             mid: `${user.id}_${message.guild.id}`,
              warnings: 1
            })
           news.save()
@@ -57,7 +57,7 @@ if(message.guild.owner.id == user.user.id) {
     }
       else if(warnings !== null) {
         let news = new mong({
-             mid: `${user.id}_${message.guild.id}`
+             mid: `${user.id}_${message.guild.id}`,
              warnings: 1
            })
           news.save()
