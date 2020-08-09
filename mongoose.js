@@ -6,7 +6,9 @@ const schema = new mongoose.Schema({
     prefix: String,
     ownerID: String,
     ownerTag: String,
-    memberCount: String
+    memberCount: String,
+    mid: String,
+    warns: String
 })
 
 module.exports = mongoose.model('villain', schema)
