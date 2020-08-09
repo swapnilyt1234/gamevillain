@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const mong = require('../../mongoose.js')
-module.exports = { 
-      run: async(message, args, client) => {
+exports.run = async(message, args, client) => {
             if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You should have admin perms to use this command!")
     }
@@ -47,7 +46,6 @@ if(message.guild.owner.id == user.user.id) {
        user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
-}
 }
     
 exports.help = {
