@@ -18,3 +18,4 @@ client.giveawaysManager = new GiveawaysManager(client, {
         embedColor: "#FF0000",
         reaction: ":tada:"
     }
+})
