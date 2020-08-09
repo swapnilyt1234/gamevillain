@@ -1,33 +1,35 @@
 const Discord = require('discord.js')
 const ms = require('ms');
 
-exports.run = async(client, message, args) => {
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to rerol giveaways');
+exports.run = async (client, message, args) => {
 
-        if(!args[0]) return message.channel.send('No giveaway ID provided');
-
-        let giveaway = client.giveawaysManager.giveaways.find((g) => g.prize === args.join(" ")) || client.giveawaysManager.giveaways.find((g) => g.messageID === args[0]);
-
-        if(!giveaway) return message.channel.send('Couldn\'t find a giveaway with that ID/name');
-
-        client.giveawaysManager.reroll(giveaway.messageID)
-        .then(() => {
-            message.channel.send('Giveaway rerolled')
-        })
-        .catch((e) => {
-            if(e.startsWith(`Giveaway with ID ${giveaway.messageID} is not ended`)){
-                message.channel.send('This giveaway hasn\'t ended yet')
-            } else {
-                console.error(e);
-                message.channel.send('An error occured')
-            }
-        })
+    if(!message.member.hasPermission('MANAGE_MESSAGES')){
+        return message.channel.send(':x: You need to have the manage messages permissions to reroll giveaways.');
     }
 
+    let messageID = args[0];
+    if(!messageID){
+        return message.channel.send(':x: You have to specify a valid message ID!');
+    }
+
+    try {
+        client.giveawaysManager.reroll(messageID);
+        message.channel.send('Giveaway rerolled!');
+    } catch (error) {
+        if(error.startsWith(`No giveaway found with ID ${messageID}.`)){
+            message.channel.send('Cannot find any giveaway with the given message ID: '+messageID);
+        }
+        if(err.startsWith(`Giveaway with message ID ${messageID} is not ended.`)){
+            message.channel.send('This giveaway is not ended yet!');
+        }
+    }
+
+};
+
 exports.help = {
-  name: "reroll",
+  name: "greroll",
   description: "Rerolls the winner of giveaway ",
-  usage: "?reroll #message id "
+  usage: "?greroll #message id "
   }
 
 exports.conf = {
