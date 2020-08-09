@@ -1,76 +1,55 @@
-const Discord = require("discord.js");
-const db = require("quick.db");
+const warns = require("../../models/warns");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("ADMINISTRATOR")) {
-    return message.channel.send(
-      "You should have admin perms to use this command!"
-    );
-  }
+  let user = message.mentions.users.first();
+  if (!user) return message.channel.send(`You did not mention a user!`);
+  if (!args.slice(1).join(" "))
+    return message.channel.send(`You did not specify a reason!`);
+  warns.findOne(
+    { Guild: message.guild.id, User: user.id },
+    async (err, data) => {
+      if (err) console.log(err);
+      if (!data) {
+        let newWarns = new warns({
+          User: user.id,
+          Guild: message.guild.id,
+          Warns: [
+            {
+              Moderator: message.author.id,
+              Reason: args.slice(1).join(" "),
+            },
+          ],
+        });
+        newWarns.save();
+        message.channel.send(
+          `${user.tag} has been warned with the reason of ${args
+            .slice(1)
+            .join(" ")}. They now have 1 warn.`
+        );
+      } else {
+        data.Warns.unshift({
+          Moderator: message.author.id,
+          Reason: args.slice(1).join(" "),
+        });
+        data.save();
+        message.channel.send(
+          `${user.tag} has been warned with the reason of ${args
+            .slice(1)
+            .join(" ")}. They know have ${data.Warns.length} warns.`
+        );
+      }
+    }
+  );
 
-  const user = message.mentions.members.first();
+  exports.help = {
+    name: "warn",
+    description: "Warns a user",
+    usage: "?warn <@user> reason",
+    example: "?warn @swapnil#0001 trial"
+  };
 
-  if (!user) {
-    return message.channel.send(
-      "Please Mention the person to who you want to warn - warn @mention <reaosn>"
-    );
-  }
-
-  if (message.mentions.users.first().bot) {
-    return message.channel.send("You can not warn bots");
-  }
-
-  if (message.author.id === user.id) {
-    return message.channel.send("You can not warn yourself");
-  }
-
-  if (user.id === message.guild.owner.id) {
-    return message.channel.send("You jerk, how you can warn server owner -_-");
-  }
-
-  const reason = args.slice(1).join(" ");
-
-  if (!reason) {
-    return message.channel.send(
-      "Please provide reason to warn - warn @mention <reason>"
-    );
-  }
-  let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
-  if (warnings === 3) {
-    return message.channel.send(
-      `${
-        message.mentions.users.first().username
-      } already reached his/her limit with 3 warnings`
-    );
-  }
-
-  if (warnings === null) {
-    db.set(`warnings_${message.guild.id}_${user.id}`, 1);
-    user.send(
-      `You have been warned in **${message.guild.name}** for ${reason}`
-    );
-    await message.channel.send(
-      `You warned **${message.mentions.users.first().username}** for ${reason}`
-    ); //DO NOT FORGET TO USE ASYNC FUNCTION
-  } else if (warnings !== null) {
-    db.add(`warnings_${message.guild.id}_${user.id}`, 1);
-    user.send(
-      `You have been warned in **${message.guild.name}** for ${reason}`
-    );
-    await message.channel.send(
-      `You warned **${message.mentions.users.first().username}** for ${reason}`
-    ); //DO NOT FORGET TO USE ASYNC FUNCTION
-  }
-};
-
-exports.help = {
-  name: "warn",
-  description: "Warns a user",
-  usage: "?warn <@user> reason",
-  example: "?warn @swapnil#0001 trial"
-};
-
-exports.conf = {
-  aliases: ["warn"],
-  cooldown: 5
-};
+  exports.conf = {
+    aliases: ["warn"],
+    cooldown: 5
+  };
+}
