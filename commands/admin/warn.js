@@ -29,17 +29,16 @@ if(message.guild.owner.id == user.user.id) {
       return message.channel.send("Please provide reason to warn - warn @mention <reason>")
     }
       
-       let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
-       mong.findOne({
-         mid: user.id
+       let warnings = await mong.findOne({
+         mid: `${user.id}_${message.guild.id}`
        }, (err, mem) => {
         if(err)console.log(err)
         if(!mem){
-           const new = new mong({
-             mid: user.id,
+           let new = new mong({
+             mid: `${user.id}_${message.guild.id}`
              warnings: null
            })
-          return new.save()
+          new.save()
         }
        })
        
@@ -48,12 +47,20 @@ if(message.guild.owner.id == user.user.id) {
     }
       
        if(warnings === null) {
-      db.set(`warnings_${message.guild.id}_${user.id}`, 1)
+      let new = new mong({
+             mid: `${user.id}_${message.guild.id}`
+             warnings: 1
+           })
+          new.save()
       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
       else if(warnings !== null) {
-        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
+        let new = new mong({
+             mid: `${user.id}_${message.guild.id}`
+             warnings: 1
+           })
+          new.save()
        user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
