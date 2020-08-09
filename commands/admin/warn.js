@@ -34,11 +34,11 @@ if(message.guild.owner.id == user.user.id) {
        }, (err, mem) => {
         if(err)console.log(err)
         if(!mem){
-           let new = new mong({
+           let news = new mong({
              mid: `${user.id}_${message.guild.id}`
              warnings: null
            })
-          new.save()
+          news.save()
         }
        })
        
@@ -47,20 +47,20 @@ if(message.guild.owner.id == user.user.id) {
     }
       
        if(warnings === null) {
-      let new = new mong({
+      let new = news mong({
              mid: `${user.id}_${message.guild.id}`
              warnings: 1
            })
-          new.save()
+          news.save()
       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
       else if(warnings !== null) {
-        let new = new mong({
+        let news = new mong({
              mid: `${user.id}_${message.guild.id}`
              warnings: 1
            })
-          new.save()
+          news.save()
        user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
       await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
     }
