@@ -20,7 +20,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You can not warn yourself")
     }
     
-    if(message.author.id === message.guild.owner.id) {
+message.guild.owner.id == message.author.id {
       return message.channel.send("You jerk, how you can warn server owner -_-")
     }
     
