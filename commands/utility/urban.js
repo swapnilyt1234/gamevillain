@@ -33,20 +33,19 @@ exports.run = async(client, message, args) => {
             return message.channel.send(new Discord.MessageEmbed()
                 .setColor("BLUE")
                 .setDescription(`No results were found for **${args.slice(1).join(" ")}**`)
-            )
+        )
         }
-	}		
+	}	
   }
- }
  
 exports.help = {
-    name: "urban
+    name: "urban",
     description: "Gives defination of words",
     usage: "?urban (word)",
-    example: "?urbano
+    example: "?urban hello"
 }
 
 exports.conf = {
-    aliases: ["urban
-    cooldown: 10
+    aliases: ["urban"],
+    cooldown: 1
 }
