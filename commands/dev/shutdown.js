@@ -1,4 +1,5 @@
 let m = "";
+exports.run = async(message, args, bot) => {
     await message.channel
       .send({embed:{title:"Are you sure you want to shutdown this bot?", color:'#FF0000'}})
       .then(msd => (m = msd));
@@ -20,6 +21,7 @@ let m = "";
       .catch(() => {
         message.channel.send("Alright,shutdown has been canceled")
         })
+}
 
 exports.help = {
   name: "kill",
