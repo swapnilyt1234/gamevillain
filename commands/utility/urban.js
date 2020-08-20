@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
   if (!args[0]) return message.channel.send("Please specify a word to search")
 
   let result = await urban(args[0]).catch(e => {
-    return message.channel.send("Unknown word phrase of **${args[0]}**, please try again later")
+     message.channel.send("Unknown word phrase of **${args[0]}**, please try again later")
 
     const embed = new Discord.MessageEmbed()
       .setColor(0x7289DA)
