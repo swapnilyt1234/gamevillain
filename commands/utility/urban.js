@@ -16,11 +16,10 @@ exports.run = async (client, message, args) => {
       .setDescription(
         `**Defination:** \n**${result.defination}** \n\n**Example:** \n**${result.example}**`
       )
-    const res = result
-      .addField('Author', res.author, true)
+      .addField('Author', result.author, true)
       .addField(
         'Rating',
-        `👍 ${res.thumbsUp.toLocaleString()} | 👎 ${res.thumbsDown.LocaleString()}`
+        `👍 ${result.thumbsUp.toLocaleString()} | 👎 ${result.thumbsDown.LocaleString()}`
       );
     if (result.tags.length > 0 && result.tags.join(' ').length < 1024) {
       embed.addField('Tags', result.tags.join(', '), true);
