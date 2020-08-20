@@ -16,6 +16,7 @@ exports.run = async (client, message, args) => {
       .setDescription(
         `**Defination:** \n**${result.defination}** \n\n**Example:** \n**${result.example}**`
       )
+    const res = result
       .addField('Author', res.author, true)
       .addField(
         'Rating',
