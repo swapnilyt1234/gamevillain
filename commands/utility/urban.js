@@ -7,7 +7,7 @@ exports.run = async(client, message, args) => {
   let result = await urban(args[0]).catch(e => {
     return message.channel.send("Unknown word phrase of **${args[0]}**, please try again later")
 
-    const embed = new Discord.MessageEmbed
+    const embed = new Discord.MessageEmbed()
       .setColor(0x7289DA)
       .setTitle(result.word)
       .setURL(result.urbanURL)
