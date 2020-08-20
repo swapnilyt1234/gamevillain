@@ -17,12 +17,7 @@ exports.run = async (client, message, args) => {
         `**Defination:** \n**${result.defination}** \n\n**Example:** \n**${result.example}**`
       )
       .addField('Author', result.author, true)
-      .addField(
-        'Rating',
-        `👍 ${result.thumbsUp.toLocaleString()} | 👎 ${result.thumbsDown.LocaleString()}`
-      );
     if (result.tags.length > 0 && result.tags.join(' ').length < 1024) {
-      embed.addField('Tags', result.tags.join(', '), true);
       embed.addField('Tags', result.tags.join(', '), true);
     }
     return message.channel.send(embed);
