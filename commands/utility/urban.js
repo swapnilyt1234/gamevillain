@@ -25,6 +25,7 @@ exports.run = async (client, message, args) => {
       embed.addField('Tags', result.tags.join(', '), true);
       embed.addField('Tags', result.tags.join(', '), true);
     }
+    return message.channel.send(embed);
   });
 };
 
