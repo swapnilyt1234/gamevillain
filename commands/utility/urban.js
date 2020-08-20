@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
   let result = await urban(args[0]).catch((e) => {
     message.channel.send(
       'Unknown word phrase of **${args[0]}**, please try again later'
-    );
+    )});
 
     const embed = new Discord.MessageEmbed()
       .setColor(0x7289da)
@@ -26,8 +26,7 @@ exports.run = async (client, message, args) => {
       embed.addField('Tags', result.tags.join(', '), true);
     }
     return message.channel.send(embed);
-  });
-};
+  }
 
 exports.help = {
   name: 'urban',
