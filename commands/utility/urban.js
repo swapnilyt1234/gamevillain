@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
       .setTitle(result.word)
       .setURL(result.urbanURL)
       .setDescription(
-        `**Defination:** \n**${result.defination}** \n\n**Example:** \n**${result.example}**`
+        `**Definition:** \n**${result.definition}** \n\n**Example:** \n**${result.example}**`
       )
       .addField('Author', result.author, true)
     if (result.tags.length > 0 && result.tags.join(' ').length < 1024) {
