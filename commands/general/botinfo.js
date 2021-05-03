@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
     .setColor("0ff0ff")
     .setTimestamp()
     .setThumbnail(icon)
-    .addField("Developed by", "Swapnil, Avocado, Sujal")
+    .addField("Developed by", "Swapnil, Petriz")
     .addField("Total Servers", client.guilds.cache.size)
     .addField("Total Members", client.users.cache.size)
     .addField(
