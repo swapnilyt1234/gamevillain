@@ -14,9 +14,7 @@ exports.run = async (client, message, args) => {
     
     function game() {
       let game;
-      if (user.presence.activities.length >= 1) game = `${user.presence.activities[0].type} ${user.presence.activities[0].name}`;
-      else if (user.presence.activities.length < 1) game = "None"; // This will check if the user doesn't playing anything.
-      return game; // Return the result.
+      message.member.presence.activities.map(e=> ${e.name}${e.details ? ": "+e.details : e.state ? ": "+ e.state : "" })
     }
     
     let x = Date.now() - user.createdAt; // Since the user created their account.
