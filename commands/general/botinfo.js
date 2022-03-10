@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
     .addField("Total Members", client.users.cache.size)
     .addField(
       "Invite me to your server",
-      "[Invite](https://discord.com/api/oauth2/authorize?client_id=732189419880316949&permissions=8&scope=bot)"
+      "[Invite](https://ptb.discord.com/api/oauth2/authorize?client_id=951401422015057953&permissions=8&scope=bot)"
     )
     .addField("Support Server",  "[Join](https://discord.gg/Er4gyWe)")
     .addField("Website", "[Visit](https://gamevillainbot.glitch.me)")
