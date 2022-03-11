@@ -25,8 +25,8 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "poll",
   description: "Makes a poll between 2 choices",
-  usage: "?poll #channel "message"",
-  example: "?poll #general "Is crystal a good bot?""
+  usage: "?poll #channel message",
+  example: "?poll #general Is crystal a good bot?"
 }
  
 exports.conf = {
