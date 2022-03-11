@@ -1,10 +1,11 @@
 const discord = require("discord.js")
 const client = new discord.Client()
-const giveMeAJoke = require('discord-jokes');
+const idJokes = require('give-me-a-joke');
 
 exports.run = async (client, message, args) => {
-  giveMeAJoke.getRandomDadJoke ((joke) => {
-    message.channel.send(joke);
+  let category = "blonde";
+idJokes.todayJoke (category, function(joke) {
+    message.channel.send(joke)
   });
 }
 
