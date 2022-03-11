@@ -1,12 +1,14 @@
 const discord = require("discord.js")
 const client = new discord.Client()
-const { Random } = require("something-random-on-discord")
+const giveMeAJoke = require('discord-jokes');
 const random = new Random();
 
 exports.run = async (client, message, args) => {
-  let data = await random.getJoke()
-  message.channel.send(data)
-  }
+  if (message.content === "joke") {
+        giveMeAJoke.getRandomDadJoke (function(joke) {
+      message.channel.send(joke);
+    });
+}
 
 exports.help = {
   name: "joke",
