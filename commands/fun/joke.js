@@ -1,5 +1,6 @@
 const discord = require("discord.js")
 const client = new discord.Client()
+const axios = require("axios")
 
 exports.run = async (client, message, args) => {
   axios.get("https://v2.jokeapi.dev/joke/Any").then(res => {
