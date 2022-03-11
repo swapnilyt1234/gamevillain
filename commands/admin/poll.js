@@ -23,10 +23,13 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "poll"
+  name: "poll",
+  description: "Makes a poll between 2 choices",
+  usage: "?poll #channel "message"",
+  example: "?poll #general "Is crystal a good bot?""
 }
-
+ 
 exports.conf = {
-    aliases: [],
-    cooldown: 1
-}
+  aliases: ["poll"],
+  cooldown: 5
+};
