@@ -4,10 +4,13 @@ const giveMeAJoke = require('discord-jokes');
 const random = new Random();
 
 exports.run = async (client, message, args) => {
-  if (message.content === "joke") {
+  client.on("message", message => {
+    if (message.conetnt === "joke") {
         giveMeAJoke.getRandomDadJoke (function(joke) {
       message.channel.send(joke);
     });
+    }
+});
 }
 
 exports.help = {
