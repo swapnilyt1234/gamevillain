@@ -5,7 +5,7 @@ const random = new Random();
 
 exports.run = async (client, message, args) => {
   client.on("message", message => {
-    if (message.conetnt === "joke") {
+    if (message.content === "joke") {
         giveMeAJoke.getRandomDadJoke (function(joke) {
       message.channel.send(joke);
     });
