@@ -27,6 +27,7 @@
     "relevant-urban": "^2.0.0",
     "mongoose": "^5.9.27"
     "discord-jokes": "^4.0.0"
+    "give-me-a-joke": "^1.2.6"
   },
   "engines": {
     "node": "12.x"
