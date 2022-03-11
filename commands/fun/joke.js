@@ -4,7 +4,7 @@ const axios = require("axios")
 
 exports.run = async (client, message, args) => {
   axios.get("https://v2.jokeapi.dev/joke/Any").then(res => {
-  message.channel.send({embeds:[{title:res.body.setup, description: res.body.delivery}]})
+  message.channel.send({embeds:[{title:res.data.setup, description: res.data.delivery}]})
 }) 
 
 }
