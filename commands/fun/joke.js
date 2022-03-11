@@ -2,7 +2,7 @@ const discord = require("discord.js")
 const client = new discord.Client()
 
 exports.run = async (client, message, args) => {
-  axios.get(https://v2.jokeapi.dev/joke/Any).then(res => {
+  axios.get(""https://v2.jokeapi.dev/joke/Any"").then(res => {
   message.channel.send({embeds:[{title:res.body.setup, description: res.body.delivery}]})
 }) 
 
