@@ -41,7 +41,7 @@ exports.run = async (client, message, args) => {
     .addField("Created Account Date", `${createdate} \nsince ${created} day(s) ago`, true)
     .addField("Joined Guild Date", `${joindate} \nsince ${joined} day(s) ago`, true)
     .addField("Status", status, true)
-    .addField("Game", game(), true)
+    .addField(message.member.presence.activities.map(e=> ${e.name}${e.details ? ": "+e.details : e.state ? ": "+ e.state : "" }))
  
     message.channel.send(embed); // Let's see if it's working.
 } // Make sure you close it
