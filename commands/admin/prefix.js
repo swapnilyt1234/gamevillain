@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
   const { def_prefix } = require("../../config.json");
   const configi = require('../../mongoose.js')
-  exports.run =  async (message, args, bot) => {
+  exports.run =  async (bot, message, args) => {
 console.log(args)
       if (!message.member.hasPermission("ADMINISTRATOR") && message.author.id != "536596970236805143")
         return message.reply({embed:{title:":rex: You're not cool enough to use this command :notcool:", color:'ff0000'}}).catch(e => {});
