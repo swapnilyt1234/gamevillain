@@ -19,8 +19,8 @@ exports.run = async (client, message, args) => {
       "Invite me to your server",
       "[Invite](https://ptb.discord.com/api/oauth2/authorize?client_id=951401422015057953&permissions=8&scope=bot)"
     )
-    .addField("Support Server",  "[Join](https://discord.gg/Er4gyWe)")
-    .addField("Website", "[Visit](https://gamevillainbot.glitch.me)")
+    .addField("Support Server",  "[Join](https://discord.gg/G8aQWFU4Fb)")
+    .addField("Website", "UNDER DEVELOPMENT")
     .addField("Prefix", "`" + prefix + "`");
    
   message.channel.send(embed);
