@@ -1,12 +1,29 @@
 const Discord = require("discord.js");
-const db = require("quick.db");
+const mong = require('../../mongoose.js')
 
 exports.run = async (client, message, args) => {
-  const user = message.mentions.members.first() || message.author
-  
-  let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
-  
-  message.channel.send(`${user} have **${warnings}** warning(s)`)
+        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permissions to use this command.')
+        const user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+        if(!user) return message.channel.send('User not found.')
+        const reason = args.slice(1).join(" ")
+        db.findOne({ guildid: message.guild.id, user: user.user.id}, async(err, data) => {
+            if(err) throw err;
+            if(data) {
+                message.channel.send(new MessageEmbed()
+                    .setTitle(`${user.user.tag}'s warns`)
+                    .setDescription(
+                        data.content.map(
+                            (w, i) => 
+                            `\`${i + 1}\` | Moderator : ${message.guild.members.cache.get(w.moderator).user.tag}\nReason : ${w.reason}`
+                        )
+                    )
+                    .setColor("RANDOM")
+                )
+            } else {
+                message.channel.send('User has no data')
+            }
+
+        })
 }
 
 exports.help = {
