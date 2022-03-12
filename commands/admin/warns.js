@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const mong = require('../../warnsystem.js')
+const db = require('../../warnsystem.js')
 
 exports.run = async (client, message, args) => {
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permissions to use this command.')
