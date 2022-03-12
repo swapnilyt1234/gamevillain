@@ -1,11 +1,10 @@
 const Discord = require("discord.js");
-const mong = require('../../mongoose.js')
-const db = require("quick.db");
+const db = require('../../mongoose.js')
 const dateformat = require("dateformat");
 const client = new Discord.Client();
 
 exports.run = async (client, message, args) => {
-  let prefix = db.get(`prefix.${message.guild.id}`);
+  let prefix = db.findOne(`prefix.${message.guild.id}`);
   if (prefix == null) prefix = "?";
 
   let icon = client.user.displayAvatarURL({ size: 2048 });
