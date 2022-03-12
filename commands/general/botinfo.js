@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
     )
     .addField("Support Server",  "[Join](https://discord.gg/G8aQWFU4Fb)")
     .addField("Website", "UNDER DEVELOPMENT")
-    .addField("Prefix", "`" + prefix + "`");
+    .addField("Prefix", "?";
    
   message.channel.send(embed);
 };
