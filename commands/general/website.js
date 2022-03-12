@@ -2,7 +2,7 @@ exports.run = async(client, message,args) => {
   message.channel.send({
     embed: {
       title: "Our Website",
-      description: `[Click Here](https://gamevillainbot.glitch.me/)`,
+      description: "UNDER DEVELOPMENT",
       color: "00ff00"
     }
     })
