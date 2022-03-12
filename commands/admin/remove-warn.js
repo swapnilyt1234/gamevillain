@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js")
+const { MessageEmbed } = require('discord.js')
 const db = require('../../warnsystem.js')
 
 exports.run = async(client, message, args) => {
