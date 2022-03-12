@@ -4,6 +4,9 @@ const db = require('../../warnsystem.js')
 exports.run = async (client, message, args) => {
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permissions to use this command.')
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+if(message.mentions.users.first().bot) {
+      return message.channel.send("Bots don't have warnings")
+    }
         if(!user) return message.channel.send('User not found.')
         const reason = args.slice(1).join(" ")
         db.findOne({ guildid: message.guild.id, user: user.user.id}, async(err, data) => {
