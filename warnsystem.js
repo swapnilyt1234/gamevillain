@@ -6,4 +6,4 @@ let Schema = new mongoose.Schema({
     content: Array
 })
 
-module.exports = mongoose.models("warnsystem", Schema)
+module.exports = mongoose.model("warnsystem", Schema)
